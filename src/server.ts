@@ -1,5 +1,6 @@
 import express, { Request, Response } from "express";
 import initDB from "./config/db";
+import { userRoute } from "./modules/user/user.route";
 
 const app = express();
 const port = 5000;
@@ -9,11 +10,10 @@ app.use(express.json());
 // initializing DB
 initDB();
 
-app.post("/users", async (req: Request, res: Response) => {
-  const body = req.body;
-  console.log(body);
-});
+// users
+app.use("/api/v1/auth", userRoute);
 
+// root route
 app.get("/", (req: Request, res: Response) => {
   res.status(200).json({
     message: "This is the root route of vehicle rental server",
