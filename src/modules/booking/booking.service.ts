@@ -13,10 +13,6 @@ const createBooking = async (payload: Record<string, any>) => {
     throw new Error("Vehicle not available");
   }
 
-  const formatDate = (date: string | Date) => {
-    new Date(date).toISOString().substring(0, 10);
-  };
-
   const vehicle = vehicleResult.rows[0];
   const start = new Date(rent_start_date);
   const end = new Date(rent_end_date);

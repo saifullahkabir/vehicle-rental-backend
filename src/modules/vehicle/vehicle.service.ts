@@ -72,9 +72,27 @@ const updateVehicle = async (id: string, payload: Record<string, any>) => {
 };
 
 //* delete vehicle
-const deleteVehicle = async (id: string) => {
-  const result = await pool.query(`DELETE FROM vehicles WHERE id=$1`, [id]);
-  return result;
+const deleteVehicle = async (vehicleId: string) => {
+  // check for active bookings
+  const bookings = await pool.query(
+    `SELECT * FROM bookings WHERE vehicle_id=$1 AND status='active'`,
+    [vehicleId]
+  );
+
+  if (bookings.rows.length > 0) {
+    throw new Error("Cannot delete vehicle: active bookings exist");
+  }
+
+  // check if vehicle exists
+  const vehicle = await pool.query(`SELECT * FROM vehicles WHERE id=$1`, [
+    vehicleId,
+  ]);
+  if (vehicle.rows.length === 0) {
+    throw new Error("Vehicle not found");
+  }
+
+  await pool.query(`DELETE FROM vehicles WHERE id=$1`, [vehicleId]);
+  return;
 };
 
 export const vehicleService = {
@@ -82,5 +100,5 @@ export const vehicleService = {
   getAllVehicles,
   getVehicleById,
   updateVehicle,
-  deleteVehicle
+  deleteVehicle,
 };
