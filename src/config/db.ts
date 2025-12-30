@@ -27,6 +27,19 @@ const initDB = async () => {
       availability_status VARCHAR(50) DEFAULT 'available'
       )
       `);
+
+  await pool.query(
+    `CREATE TABLE IF NOT EXISTS bookings (
+      id SERIAL PRIMARY KEY,
+      customer_id INT REFERENCES users(id),
+      vehicle_id INT REFERENCES vehicles(id),
+      rent_start_date DATE NOT NULL,
+      rent_end_date DATE NOT NULL,
+      total_price INT NOT NULL,
+      status VARCHAR(50) DEFAULT 'active'
+      )`
+  );
+
   console.log("DB Connected");
 };
 

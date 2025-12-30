@@ -4,6 +4,7 @@ import initDB from "./config/db";
 import { authRoute } from "./modules/auth/auth.route";
 import { userRoute } from "./modules/user/user.route";
 import { vehicleRoute } from "./modules/vehicle/vehicle.route";
+import { bookingRoute } from "./modules/booking/booking.route";
 
 const app = express();
 const port = 5000;
@@ -21,6 +22,9 @@ app.use("/api/v1/users", userRoute);
 
 // vehicles
 app.use("/api/v1/vehicles", vehicleRoute);
+
+// bookings
+app.use("/api/v1/bookings", bookingRoute);
 
 // root route
 app.get("/", (req: Request, res: Response) => {
