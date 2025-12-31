@@ -60,12 +60,11 @@ npm run dev
 
 ## Usage Instructions
 
-- #### Use Postman or any API client
-- #### Authentication is required for protected routes
-- #### Include JWT token in request headers:
-- Authorization: Bearer <jwt_token>
-
-- #### Follow API endpoints exactly as defined in the specification:
+#### 1. Use Postman or any API client
+#### 2. Authentication is required for protected routes
+#### 3. Include JWT token in request headers:
+ Authorization: Bearer <jwt_token>
+#### 4. Follow API endpoints exactly as defined in the specification:
 - /api/v1/auth
 - /api/v1/users
 - /api/v1/vehicles
