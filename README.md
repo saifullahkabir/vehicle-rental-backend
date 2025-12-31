@@ -55,5 +55,18 @@ npm run build
 ```
 ### 5. Run the Server
 ```bash
-npm start
+npm run dev
 ```
+
+## Usage Instructions
+
+#### Use Postman or any API client
+#### Authentication is required for protected routes
+#### Include JWT token in request headers:
+Authorization: Bearer <jwt_token>
+
+#### Follow API endpoints exactly as defined in the specification:
+/api/v1/auth
+/api/v1/users
+/api/v1/vehicles
+/api/v1/bookings
