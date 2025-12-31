@@ -44,8 +44,16 @@ It supports user authentication, role-based access control, vehicle inventory ma
 ```bash
 git clone https://github.com/saifullahkabir/vehicle-rental-backend.git
 cd vehicle-rental-backend
-````
-2. Install Dependencies
+```
+### 2. Install Dependencies
 ```bash
 npm install
-````
+```
+### 4. Build the Project
+```bash
+npm run build
+```
+### 5. Run the Server
+```bash
+npm start
+```
