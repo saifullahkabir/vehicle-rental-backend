@@ -66,7 +66,7 @@ npm run dev
 - Authorization: Bearer <jwt_token>
 
 - #### Follow API endpoints exactly as defined in the specification:
--- /api/v1/auth
--- /api/v1/users
--- /api/v1/vehicles
--- /api/v1/bookings
+- /api/v1/auth
+- /api/v1/users
+- /api/v1/vehicles
+- /api/v1/bookings
